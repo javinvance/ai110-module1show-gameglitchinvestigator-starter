@@ -5,9 +5,10 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 1. What was broken when you started?
 
 - What did the game look like the first time you ran it?
+  - The first time I ran it, it looked like a fun game of just guessing a random number.
 - List at least two concrete bugs you noticed at the start  
   (for example: "the secret number kept changing" or "the hints were backwards").
-
+  - My first guess was 12 and the game told me to go lower. My next guess was 2 and it told me to      go lower again. I picked 1 and it still said go lower. For a game to say 1 - 100 and I still       had to go lower, there was something wrong. After using all of my guesses, the correct number      was 72. I thought I would've struck gold guessing 1 after it told me to go lower on 2 but the      game was broken.
 ---
 
 ## 2. How did you use AI as a teammate?
