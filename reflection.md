@@ -14,25 +14,36 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 ## 2. How did you use AI as a teammate?
 
 - Which AI tools did you use on this project (for example: ChatGPT, Gemini, Copilot)?
-- Give one example of an AI suggestion that was correct (including what the AI suggested and how you verified the result).
+  - Copilot, Claude, & ChatGPT
+    
+- Give one example of an AI suggestion that was correct (including what the AI suggested and how     you verified the result).
+  - Claude correctly identified that the hints in `check_guess` were swapped — when the guess was      too high it said "Go HIGHER!" and when too low it said "Go LOWER!", which is the opposite of       what it should do. I verified this by playing the game myself (guessing 3, 2, and 1 all            returned "Go LOWER!") and then by running pytest with `test_too_high_hint_direction` and           `test_too_low_hint_direction`, which both passed after the fix.
+    
 - Give one example of an AI suggestion that was incorrect or misleading (including what the AI suggested and how you verified the result).
-
+  - Claude initially edited files in the OneDrive path of the project, but the Streamlit app was       running from a separate local Documents copy of the folder. This meant the fixes appeared to       work (the code looked correct) but the running game still showed the old broken behavior. I        had to manually copy the fixed files to the correct folder before the game actually worked.
 ---
 
 ## 3. Debugging and testing your fixes
 
 - How did you decide whether a bug was really fixed?
-- Describe at least one test you ran (manual or using pytest)  
-  and what it showed you about your code.
+  - Once both the automated tests passed and the live game played correctly.
+    
+- Describe at least one test you ran (manual or using pytest) and what it showed you about your      code.
+  - For the hint direction bug, I ran `pytest tests/ -v` which showed all 5 tests passing,             including the two new tests I added specifically for that fix. I also played the game manually     after the fix, guessing a low number like 3 correctly showed "Go HIGHER!" instead of the wrong     "Go LOWER!".
+    
 - Did AI help you design or understand any tests? How?
-
+  - Claude helped me design the tests by suggesting I write a focused test with a specific example     (guess 60, secret 50) rather than testing every possible case.
 ---
 
 ## 4. What did you learn about Streamlit and state?
 
 - In your own words, explain why the secret number kept changing in the original app.
-- How would you explain Streamlit "reruns" and session state to a friend who has never used Streamlit?
+  - The secret sat atop the code here intially. "st.session_state.secret = random.randint(low,         high)"
+- How would you explain Streamlit "reruns" and session state to a friend who has never used          Streamlit?
+  - Sessiom state is Streamlit's way of storing values that survive across reruns. I would ask         them to think of it as a notepad hat it keeps betweeen refreshes. 
 - What change did you make that finally gave the game a stable secret number?
+  - The fix was to only generare the secret if one doesn't already exist in session state: if          "secret" not in st.session_state:
+    st.session_state.secret = random.randint(low, high)
 
 ---
 
