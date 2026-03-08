@@ -1,3 +1,6 @@
+# FIX: Refactored all game logic functions out of app.py into this module using Claude Code Agent mode.
+# This separates concerns so logic can be tested independently from the Streamlit UI.
+
 def get_range_for_difficulty(difficulty: str):
     if difficulty == "Easy":
         return 1, 20
@@ -27,6 +30,9 @@ def parse_guess(raw: str):
 
 
 def check_guess(guess, secret):
+    # FIX: Original code had hints backwards ("Go HIGHER!" when too high, "Go LOWER!" when too low).
+    # Also cast both values to int to prevent string comparison bugs on even attempts.
+    # Claude Code identified the swap and the type coercion issue; verified with pytest and manual play.
     guess = int(guess)
     secret = int(secret)
 

@@ -1,5 +1,7 @@
 import random
 import streamlit as st
+# FIX: Moved get_range_for_difficulty, parse_guess, check_guess, update_score into logic_utils.py
+# using Claude Code Agent mode so game logic can be tested without running the Streamlit UI.
 from logic_utils import get_range_for_difficulty, parse_guess, check_guess, update_score
 
 st.set_page_config(page_title="Glitchy Guesser", page_icon="🎮")
@@ -44,6 +46,8 @@ if "history" not in st.session_state:
 
 st.subheader("Make a guess")
 
+# FIX: Original hardcoded "1 and 100" regardless of difficulty.
+# Claude Code spotted this; now uses the actual low/high values from get_range_for_difficulty.
 st.info(
     f"Guess a number between {low} and {high}. "
     f"Attempts left: {attempt_limit - st.session_state.attempts}"
@@ -70,6 +74,8 @@ with col3:
     show_hint = st.checkbox("Show hint", value=True)
 
 if new_game:
+    # FIX: Original reset only set attempts to 0 and used a hardcoded range (1-100).
+    # Did not reset score, status, or history. Claude Code identified all missing resets.
     st.session_state.attempts = 1
     st.session_state.secret = random.randint(low, high)
     st.session_state.score = 0
