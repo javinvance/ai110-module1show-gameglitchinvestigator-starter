@@ -51,5 +51,8 @@ Answer each question in 3 to 5 sentences. Be specific and honest about what actu
 
 - What is one habit or strategy from this project that you want to reuse in future labs or projects?
   - This could be a testing habit, a prompting strategy, or a way you used Git.
+    - I think I followed a pretty solid prompting strategy. I was very specific in what I was            looking for in communicating with Claude and have found myself to lean on it more over ChatGPT     as I use it. 
 - What is one thing you would do differently next time you work with AI on a coding task?
+  - Claude worked pretty well but going forward I'll probably use two AI's to confirm what I have      is correct and ensure all changes are documented.
 - In one or two sentences, describe how this project changed the way you think about AI generated code.
+  - I realized AI can write code that looks completely reasonable and still be wrong. The hint bug     wasn't obvious from reading the code and I had to run the game and try low numbers to notice       it was giving the wrong direction.
