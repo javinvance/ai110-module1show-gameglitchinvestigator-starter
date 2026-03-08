@@ -26,8 +26,11 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 📝 Document Your Experience
 
 - [ ] Describe the game's purpose.
+- [ ] Number guessing game in which a player selects a difficulty & tries to guess a randomly            chosen secret number correctly.
 - [ ] Detail which bugs you found.
+- [ ] The hints were backwards. | New game wouldn't reset as it should. | The game stayed at 1-100       through each difficulty initially. 
 - [ ] Explain what fixes you applied.
+- [ ] Placed the hints in the correct places. | Fixed new game reset. | Corrected numbers within         game difficulty. 
 
 ## 📸 Demo
 
@@ -38,3 +41,5 @@ It wrote the code, ran away, and now the game is unplayable.
 ## 🚀 Stretch Features
 
 - [ ] [If you choose to complete Challenge 4, insert a screenshot of your Enhanced Game UI here]
+- [ ] <img width="785" height="535" alt="image" src="https://github.com/user-attachments/assets/848d6441-17c9-47f1-8329-4943443bb606" />
+
